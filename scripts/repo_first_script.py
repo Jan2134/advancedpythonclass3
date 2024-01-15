@@ -17,6 +17,16 @@ class FilteringClass:
         filter by price
         """
         return self.df[self.df["Price Starting With ($)"] < price]
+    
+def load_dataset(filename):
+    """
+    Function to load dataset
+    """
+    extension = filename.rsplit(".",1)[-1]
+    if extension == "csv":
+        return pd.read_csv(filename)
+    else:
+        raise TypeError(f"The extension is {extension} and not csv. Try again.")
 
 @click.command(short_help="Parser to import dataset")
 @click.option("-f", "--filename", required=True, help="File to import")
@@ -25,7 +35,7 @@ def main(filename):
     This is the main function
     """
 
-    df = pd.read_csv(filename)
+    df = pd.load_dataset(filename)
     filter_instance = FilteringClass(df)
     result = filter_instance.filterprice(12)
     #import pdb;pdb.set_trace()

@@ -14,7 +14,7 @@ class TestSimpleFunctions(unittest.TestCase):
         Test the sum function
         """
         result = sum_two_nums(4,5)
-        self.assertEqual(result, 8)
+        self.assertEqual(result, 9)
 
 
     def test_sub(self):
