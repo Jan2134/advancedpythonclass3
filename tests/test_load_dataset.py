@@ -14,14 +14,14 @@ class TestDataset(unittest.TestCase):
         """
         Path to dataset
         """
-        self.path("datasets/BooksDatasetClean.cs")
+        self.path = "datasets/BooksDatasetClean.cs"
 
 
     def test_extansion_fail(self):
         """
         Test for extansion of the dataset
         """
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             load_dataset(self.path)
 
 
