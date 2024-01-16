@@ -3,7 +3,12 @@ Script to make updates in github
 """
 import click
 import pandas as pd
-import scripts.filtering as f
+
+#for test to find the right directory
+if __name__ == "__main__":
+    import filtering as f
+else:
+    import scripts.filtering as f
 
 def load_dataset(filename):
     """
