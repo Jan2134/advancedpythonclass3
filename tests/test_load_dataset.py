@@ -10,6 +10,7 @@ class TestDataset(unittest.TestCase):
     Class to test the dataset inout in different ways
     """
 
+
     def setUp(self):
         """
         Path to dataset

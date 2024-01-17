@@ -4,21 +4,23 @@ Script to make updates in github
 import click
 import pandas as pd
 
-#for test to find the right directory
+# for test to find the right directory
 if __name__ == "__main__":
     import filtering as f
 else:
     import scripts.filtering as f
 
+
 def load_dataset(filename):
     """
     Function to load dataset
     """
-    extension = filename.rsplit(".",1)[-1]
+    extension = filename.rsplit(".", 1)[-1]
     if extension == "csv":
         return pd.read_csv(filename)
     else:
-        raise TypeError(f"The extension is {extension} and not csv. Try again.")
+        raise TypeError(f"The extension is {extension}, not csv. Try again.")
+
 
 @click.command(short_help="Parser to import dataset")
 @click.option("-id", "--input", required=True, help="File to import")
@@ -26,8 +28,6 @@ def load_dataset(filename):
 @click.option("-y", "--year", help="Filter data for year")
 @click.option("-m", "--month", help="Filter data for month")
 @click.option("-p", "--price", help="Filter data for pric smaller than x")
-
-
 def main(input, filtering, year, month, price):
     """
     This is the main function
@@ -45,7 +45,7 @@ def main(input, filtering, year, month, price):
         if price:
             print(filter_description + f" price {price}")
             df = filter_instance.filter_by_price(int(price))
-    #import pdb;pdb.set_trace()
+    # import pdb;pdb.set_trace()
     print(df.head())
 
 
