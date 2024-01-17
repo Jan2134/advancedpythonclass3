@@ -1,3 +1,8 @@
+"""
+Scipt to filter data
+"""
+
+
 class FilteringClass:
     """
     Class for filtering
